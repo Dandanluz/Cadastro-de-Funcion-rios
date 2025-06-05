@@ -3,5 +3,5 @@
 
 int main(){
     Funcionario* lista[10];
-    
+    int teste;
  };
