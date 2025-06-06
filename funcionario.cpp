@@ -1,22 +1,36 @@
 #include <iostream>
 #include "funcionario.h"
+
 using namespace std;
 
-void Funcionario::setNome(string n){
+void Funcionario::setNome(string n)
+{
     nome = n;
-};
-string Funcionario::getNome(){
+}
+string Funcionario::getNome()
+{
     return nome;
 }
-void Funcionario::setSalarioBase(float s){
+void Funcionario::setSalarioBase(float s)
+{
     salarioBase = s;
-};
-float Funcionario::getSalariobase(){
+}
+float Funcionario::getSalariobase()
+{
     return salarioBase;
 }
-void Funcionario::setID(int i){
+void Funcionario::setID(int i)
+{
     id = i;
-};
-int Funcionario::getID(){
+}
+int Funcionario::getID()
+{
     return id;
+}
+
+void Funcionario::exibirInformacoes()
+{
+    cout << "ID: " << id << endl;
+    cout << "Nome: " << nome << endl;
+    cout << "Salário Base: " << salarioBase << endl;
 }
