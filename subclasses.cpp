@@ -1,50 +1,65 @@
 #include <iostream>
-#include "funcionario.h"
+#include <iomanip>
+#include "subclasses.h"
+
 using namespace std;
 
-class Desenvolvedor : public Funcionario{
-    private:
-    int quantidadeDeProjetos;
-    public:
-    float calcularSalarioFinal()
-    {return salarioBase + (500 * quantidadeDeProjetos);}
-    void exibirInformacoes(){
-        cout << "ID: "<< getID() << endl;
-        cout << "Nome: " << getNome() << endl;
-        cout << "Tipo: Desenvolvedor" << endl;
-        cout << "Projetos: " << quantidadeDeProjetos << endl;
-        cout << "Salário base: " << getSalariobase() << endl;
-        cout << "Salário final: " << calcularSalarioFinal() << endl;
-    };
+void Desenvolvedor::setProjetos(int projetos)
+{
+    quantidadeDeProjetos = projetos;
+}
 
-};
-class Gerente : public Funcionario{
-    private:
-    float bonusMensal;
-    public:
-    float calcularSalarioFinal()
-    {return salarioBase + bonusMensal;}
-    void exibirInformacoes(){
-        cout << "ID: "<< getID() << endl;
-        cout << "Nome: " << getNome() << endl;
-        cout << "Tipo: Gerente" << endl;
-        cout << "Bonus: " << bonusMensal << endl;
-        cout << "Salário base: " << getSalariobase() << endl;
-        cout << "Salário final: " << calcularSalarioFinal() << endl;
-    };
-};
-class Estagiario : public Funcionario{
-    private:
-    int horasTrabalhadas;
-    public:
-    float calcularSalarioFinal()
-    {return salarioBase * (horasTrabalhadas / 160.0);}
-     void exibirInformacoes(){
-        cout << "ID: "<< getID() << endl;
-        cout << "Nome: " << getNome() << endl;
-        cout << "Tipo: Estagiário" << endl;
-        cout << "Horas Trabalhadas: " << horasTrabalhadas << endl;
-        cout << "Salário base: " << getSalariobase() << endl;
-        cout << "Salário final: " << calcularSalarioFinal() << endl;
-    };
-};
+float Desenvolvedor::calcularSalarioFinal()
+{
+    return salarioBase + (500 * quantidadeDeProjetos);
+}
+
+void Desenvolvedor::exibirInformacoes()
+{
+    cout << "ID: " << getID() << endl;
+    cout << "Nome: " << getNome() << endl;
+    cout << "Tipo: Desenvolvedor" << endl;
+    cout << "Projetos: " << quantidadeDeProjetos << endl;
+    cout << "Salário base: " << fixed << setprecision(2) << getSalariobase() << endl;
+    cout << "Salário final: " << fixed << setprecision(2) << calcularSalarioFinal() << endl;
+}
+
+void Gerente::setBonusMensal(int bonus)
+{
+    bonusMensal = bonus;
+}
+
+float Gerente::calcularSalarioFinal()
+{
+    return salarioBase + bonusMensal;
+}
+
+void Gerente::exibirInformacoes()
+{
+    cout << "ID: " << getID() << endl;
+    cout << "Nome: " << getNome() << endl;
+    cout << "Tipo: Gerente" << endl;
+    cout << "Bonus: " << bonusMensal << endl;
+    cout << "Salário base: " << fixed << setprecision(2) << getSalariobase() << endl;
+    cout << "Salário final: " << fixed << setprecision(2) << calcularSalarioFinal() << endl;
+}
+
+void Estagiario::setHorasTrab(int horas)
+{
+    horasTrabalhadas = horas;
+}
+
+float Estagiario::calcularSalarioFinal()
+{
+    return salarioBase * (horasTrabalhadas / 160.0);
+}
+
+void Estagiario::exibirInformacoes()
+{
+    cout << "ID: " << getID() << endl;
+    cout << "Nome: " << getNome() << endl;
+    cout << "Tipo: Estagiário" << endl;
+    cout << "Horas trabalhadas: " << horasTrabalhadas << endl;
+    cout << "Salário base: " << fixed << setprecision(2) << getSalariobase() << endl;
+    cout << "Salário final: " << fixed << setprecision(2) << calcularSalarioFinal() << endl;
+}
