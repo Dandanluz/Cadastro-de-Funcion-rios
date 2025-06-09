@@ -9,10 +9,22 @@ int main()
     Funcionario *lista[10];
     int n;
 
-    cout << "Quantos funcionarios deseja cadastrar? ";
+    cout << "Quantos funcionarios deseja cadastrar?(min 6 - máx 10): ";
     cin >> n;
 
-    for (int i = 0; i < n && i < 10; i++)
+    while(n<6){
+       cout << "número de funcionários insuficiente!(cadastre no mínimo 6 funcionários)" << endl;
+       cout << "Quantos funcionarios deseja cadastrar?(min 6 - máx 10): ";
+       cin >> n;
+    }
+
+    while(n>10){
+        cout << "número de funcionários extrapolado!(cadastre no máximo 10 funcionários)" << endl;
+        cout << "Quantos funcionarios deseja cadastrar?(min 6 - máx 10): ";
+        cin >> n;
+    }
+
+    for (int i = 0; i < n; i++)
     {
         string nome;
         int id, salarioBase, tipo;
